@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:20:04 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/06 13:33:05 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/06 16:56:32 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 int		main()
 {
-	char	**board;
-	char	**piece;
+	t_board		*board;
+	t_board		*piece;
+	t_coords	*result;
 
+	board = NULL;
+	piece = NULL;
 	open("./test", O_RDONLY);
-	board = handle_input('b');
-	printf("%s\n", board[1]);
+	handle_input(&board, &piece);
 	print_board(board);
-	piece = handle_input('p');
-	printf("%s\n", piece[1]);
 	print_board(piece);
+	result = fill_board(board, piece);
+	print_coords(result);
+	close(3);
 	return (0);
 }

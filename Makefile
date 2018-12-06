@@ -6,7 +6,7 @@
 #    By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/06 10:13:41 by bwaterlo          #+#    #+#              #
-#    Updated: 2018/12/06 13:22:12 by bwaterlo         ###   ########.fr        #
+#    Updated: 2018/12/06 16:16:30 by bwaterlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,15 @@ NAME	=		filler
 CFLAGS	+=		-Wall\
 				-Wextra\
 				-Werror\
-				-I $(LIBFT_DIR)
+				-g\
+				-I $(LIBFT_DIR)\
 
 CC		=		gcc
 
 SRCS	=		filler.c\
 				board.c\
 				helpers.c\
+				solve.c\
 
 LIBFT_DIR =		libft/
 

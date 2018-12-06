@@ -7,10 +7,9 @@
 			"request": "launch",
 			"program": "${workspaceFolder}/filler",
 			"args": [],
-			"stopAtEntry": false,
+			"stopAtEntry": true,
 			"cwd": "${workspaceFolder}",
 			"environment": [],
-			// "externalConsole": true,
 			"MIMode": "lldb"
 		},
 		// {
