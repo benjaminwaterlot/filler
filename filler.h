@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:19:43 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/06 11:33:47 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/06 13:32:12 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 # define FILLER_H
 
 # include "libft.h"
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
 
+// TEMPORARY
+# include <stdio.h>
+# include <fcntl.h>
+
 //		READER FUNCTIONS
-void	handle_input(char **board, char **piece);
+char	**handle_input(char type);
 
 //		SOLVER FUNCTIONS
 

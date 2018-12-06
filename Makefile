@@ -6,7 +6,7 @@
 #    By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/06 10:13:41 by bwaterlo          #+#    #+#              #
-#    Updated: 2018/12/06 11:04:04 by bwaterlo         ###   ########.fr        #
+#    Updated: 2018/12/06 13:22:12 by bwaterlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,4 +49,4 @@ fclean: clean
 re: fclean all
 
 t: all
-	@cat test | ./filler
+	@./filler

@@ -3,16 +3,48 @@
 	"configurations": [
 		{
 			"name": "(lldb) Launch",
-			"type": "lldb",
+			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/filler",
 			"args": [],
-			"stdio": {"stdin": "./test", "stdout": null, "stderr": null},
+			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
-			// "environment": [],
+			"environment": [],
 			// "externalConsole": true,
-			// "MIMode": "lldb",
-			// "preLaunchTask": "make"
-		}
+			"MIMode": "lldb"
+		},
+		// {
+        //     "name": "(gdb) Launch",
+        //     "type": "cppdbg",
+        //     "request": "launch",
+        //     "program": "${workspaceFolder}/filler",
+        //     "args": [],
+        //     "stopAtEntry": false,
+        //     "cwd": "${workspaceFolder}",
+        //     "environment": [],
+        //     "externalConsole": true,
+        //     "MIMode": "gdb",
+        //     "miDebuggerPath": "./",
+        //     "setupCommands": [
+        //         {
+        //             "description": "Enable pretty-printing for gdb",
+        //             "text": "-enable-pretty-printing",
+        //             "ignoreFailures": true
+        //         }
+        //     ],
+        //     "preLaunchTask": "make"
+        // },
+		// {
+		// 	"name": "(gdb) Launch",
+		// 	"type": "cppdbg",
+		// 	"request": "launch",
+		// 	"program": "${workspaceFolder}/filler",
+		// 	"args": [],
+		// 	"cwd": "${workspaceFolder}",
+		// 	// "environment": [],
+		// 	// "externalConsole": true,
+		// 	// "MIMode": "lldb",
+		// 	// "preLaunchTask": "make"
+		// }
 	]
 }

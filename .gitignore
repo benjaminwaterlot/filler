@@ -1,3 +1,8 @@
+
+*workspace
+test
+.vscode*
+
 # Prerequisites
 *.d
 
