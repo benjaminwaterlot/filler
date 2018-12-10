@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:19:43 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/10 12:07:58 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/10 13:33:14 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ typedef struct	s_board
 }				t_board;
 
 //				READER FUNCTIONS
-void			handle_input(t_board **board, t_board **piece);
+void			handle_input(t_board **board, t_piece **piece);
 
 //				SOLVER FUNCTIONS
-t_coords		*fill_board(t_board *board, t_board *piece);
+t_coords		*fill_board(t_board *board, t_piece *piece);
 
 //				OUTPUT FUNCTIONS
 void			print_board(t_board *board);

@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:20:04 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/10 12:02:27 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/10 13:32:48 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		main()
 {
 	t_board		*board;
-	t_board		*piece;
+	t_piece		*piece;
 	t_coords	*result;
 	char		player;
 	char		*temp_line;

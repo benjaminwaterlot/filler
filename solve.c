@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:12:17 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/10 11:55:03 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/10 13:39:03 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			fit(char board, char piece)
 	return (0);
 }
 
-int			try_match(t_board *board, t_board *piece, int s_line, int s_col)
+int			try_match(t_board *board, t_piece *piece, int s_line, int s_col)
 {
 	int		line;
 	int		col;
@@ -54,7 +54,7 @@ int			try_match(t_board *board, t_board *piece, int s_line, int s_col)
 	return (overlapings == 1) ? 1 : 0;
 }
 
-t_coords	*find_place(t_board *board, t_board *piece)
+t_coords	*find_place(t_board *board, t_piece *piece)
 {
 	int		line;
 	int		col;
@@ -74,7 +74,7 @@ t_coords	*find_place(t_board *board, t_board *piece)
 	return (NULL);
 }
 
-t_coords	*fill_board(t_board *board, t_board *piece)
+t_coords	*fill_board(t_board *board, t_piece *piece)
 {
 	t_coords	*coords;
 
