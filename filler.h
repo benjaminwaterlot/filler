@@ -6,12 +6,14 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:19:43 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/06 16:40:11 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/10 12:07:58 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLER_H
 # define FILLER_H
+
+# define FILLER_STD 0
 
 # include "libft.h"
 # include <unistd.h>
@@ -31,6 +33,8 @@ typedef struct	s_coords
 typedef struct	s_piece
 {
 	char	**value;
+	int		x_start;
+	int		y_start;
 	int		width;
 	int		height;
 }				t_piece;

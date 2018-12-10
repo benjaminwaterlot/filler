@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:20:04 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/06 16:56:32 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/10 12:02:27 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,23 @@ int		main()
 	t_board		*board;
 	t_board		*piece;
 	t_coords	*result;
+	char		player;
+	char		*temp_line;
 
 	board = NULL;
 	piece = NULL;
-	open("./test", O_RDONLY);
-	handle_input(&board, &piece);
-	print_board(board);
-	print_board(piece);
-	result = fill_board(board, piece);
-	print_coords(result);
-	close(3);
+	// open("./test", O_RDONLY);
+	get_next_line(FILLER_STD, &temp_line);
+	player = temp_line[10] == 1 ? 'O' : 'X';
+	ft_memdel((void **)&temp_line);
+	while (1)
+	{
+		handle_input(&board, &piece);
+		result = fill_board(board, piece);
+		print_coords(result);
+		fflush(NULL);
+		ft_memdel((void **)&board);
+		ft_memdel((void **)&piece);
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/06 10:13:41 by bwaterlo          #+#    #+#              #
-#    Updated: 2018/12/06 16:16:30 by bwaterlo         ###   ########.fr        #
+#    Updated: 2018/12/10 12:06:59 by bwaterlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,4 +51,4 @@ fclean: clean
 re: fclean all
 
 t: all
-	@./filler
+	cd resources && ./filler_vm -f maps/map01 -p1 players/hcao.filler -p2 ../filler && cd -

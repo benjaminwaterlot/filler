@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:12:17 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/06 17:40:12 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/10 11:55:03 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_coords	*make_coords(int line, int col)
 
 int			fit(char board, char piece)
 {
-	if (board == 'O' && piece == '*')
+	if ((board == 'O' || board == 'o') && piece == '*')
 		return (9);
 	if (board == 'X' && piece == '*')
 		return (1);

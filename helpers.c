@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/06 17:29:54 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/10 11:07:37 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,15 @@ void	print_board(t_board *board)
 	printf("================\n");
 	while (board->value[i])
 	{
-		printf("%s\n", board->value[i]);
+		fprintf(stderr, "%s\n", board->value[i]);
 		i++;
 	}
 }
 
 void	print_coords(t_coords *coords)
 {
-	printf("COORDS ARE [%i, %i]\n", coords->line, coords->col);
+	// fprintf(stderr, "COORDS ARE [%i, %i]\n", coords->line, coords->col);
+	printf("%i %i\n", coords->line, coords->col);
 }
 
 int		full_of_digits(char *string)
