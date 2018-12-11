@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:19:43 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:27:03 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/11 19:32:38 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@
 # include <stdio.h>
 # include <fcntl.h>
 
+typedef struct	s_game
+{
+	char	player;
+	int		enemy_col;
+	int		enemy_line;
+	int		initialized;
+}				t_game;
+
+t_game		*g_game;
+
 typedef struct	s_coords
 {
 	int		line;
@@ -35,8 +45,8 @@ typedef struct	s_coords
 typedef struct	s_piece
 {
 	char	**value;
-	int		x_start;
-	int		y_start;
+	int		start_line;
+	int		start_col;
 	int		width;
 	int		height;
 }				t_piece;
@@ -53,6 +63,7 @@ void			handle_input(t_board **board, t_piece **piece);
 
 //				SOLVER FUNCTIONS
 t_coords		*fill_board(t_board *board, t_piece *piece);
+int				is_enemy(char c);
 
 //				OUTPUT FUNCTIONS
 void			print_board(t_board *board);
