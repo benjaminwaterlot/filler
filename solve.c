@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:12:17 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 14:00:12 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/11 16:31:31 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,9 @@ int			try_match(t_board *board, t_piece *piece, int s_line, int s_col)
 	int		line;
 	int		col;
 	int		overlapings;
-	int		score;
 	
 	overlapings = 0;
 	line = 0;
-	score = 1;
 	while (line < piece->height)
 	{
 		col = 0;
@@ -52,8 +50,29 @@ int			try_match(t_board *board, t_piece *piece, int s_line, int s_col)
 		}
 		line++;
 	}
-	if (!overlapings)
-		return (0);
+	return (overlapings == 1) ? 1 : 0;
+}
+
+int			get_score(t_board *board, t_piece *piece, int s_line, int s_col)
+{
+	int		score;
+	int		i;
+
+	score = 0;
+	i = 0;
+	while (i < piece->width)
+	{
+		if (s_line > 0 && board->value[s_line - 1][s_col + i] == 'O')
+			score++;
+		i++;
+	}
+	// i = 0;
+	// while (i < piece->width)
+	// {
+	// 	if (s_line < board->height + piece->height + 1 && board->value[s_line + piece->height + 1][s_col + i] == 'O')
+	// 		score++;
+	// 	i++;
+	// }
 	return (score);
 }
 
@@ -62,22 +81,20 @@ t_coords	*find_place(t_board *board, t_piece *piece)
 	int			line;
 	int			col;
 	t_coords	*results;
-	// t_coords	*current;
 	int			current_score;
 
 	line = 0;
 	results = (t_coords *)ft_memalloc(sizeof(t_coords));
-	// current = (t_coords *)ft_memalloc(sizeof(t_coords));
-	// results->is_valid = 1;
-	results->score = 0;
+	results->score = -1;
 	while (line + piece->height <= board->height)
 	{
 		col = 0;
 		while (col + piece->width <= board->width)
 		{
-			current_score = try_match(board, piece, line, col);
-			if (current_score > 0)
+			if (try_match(board, piece, line, col))
 			{
+				current_score = get_score(board, piece, line, col);
+				// current_score = 1;
 				if (current_score > results->score)
 				{
 					make_coords(results, line - piece->x_start, col - piece->y_start, 1);
@@ -88,9 +105,8 @@ t_coords	*find_place(t_board *board, t_piece *piece)
 		}
 		line++;
 	}
-	if (!results)
-		make_coords(results, 0, 0, 0);
-	// make_coords(results, 0, 0, 0);
+	// if (!results)
+		// make_coords(results, 0, 0, 0);
 	return (results);
 }
 
