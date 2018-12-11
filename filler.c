@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:20:04 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 09:43:06 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/11 13:56:11 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,13 @@ int		main()
 		ft_memdel((void **)&board);
 		ft_memdel((void **)&piece);
 		if (!result->is_valid)
+		{
+			fprintf(stderr, "I AM ABOUT TO LEAVE NOW\n");
+			fflush(NULL);
 			break ;
+		}
 		ft_memdel((void **)&result);
 	}
+	// print_board(board);
 	return (0);
 }

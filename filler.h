@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:19:43 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 09:41:30 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/11 13:27:03 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct	s_coords
 	int		line;
 	int		col;
 	int		is_valid;
+	int		score;
 }				t_coords;
 
 typedef struct	s_piece
