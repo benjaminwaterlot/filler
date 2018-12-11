@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:20:04 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/10 13:32:48 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/11 09:43:06 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int		main()
 
 	board = NULL;
 	piece = NULL;
-	// open("./test", O_RDONLY);
 	get_next_line(FILLER_STD, &temp_line);
 	player = temp_line[10] == 1 ? 'O' : 'X';
 	ft_memdel((void **)&temp_line);
@@ -34,6 +33,9 @@ int		main()
 		fflush(NULL);
 		ft_memdel((void **)&board);
 		ft_memdel((void **)&piece);
+		if (!result->is_valid)
+			break ;
+		ft_memdel((void **)&result);
 	}
 	return (0);
 }

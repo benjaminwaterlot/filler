@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:34:11 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/10 13:46:17 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/10 14:35:55 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,23 +80,37 @@ t_piece	*create_piece()
 void	refine_piece(t_piece **piece)
 {
 	int		i;
+	int		is_empty;
 	
+	is_empty = 1;
+	(*piece)->y_start = 0;
+	i = 0;
+	while (i < (*piece)->height)
+	{
+		if ((*piece)->value[i][(*piece)->y_start] != '.')
+			is_empty = 0;
+		i++;
+	}
+	if (is_empty)
+	{
+		(*piece)->y_start++;
+		(*piece)->width--;
+	}
+	// fprintf(stderr, "COUCOU\n");
+	// fflush(NULL);
+
 	(*piece)->x_start = 0;
 	while (!ft_strchr((*piece)->value[(*piece)->x_start], '*'))
 	{
 		(*piece)->x_start++;
 		(*piece)->height--;
 	}
-	// i = (*piece)->height + (*piece)->x_start;
-	// while (!ft_strchr((*piece)->value[i], '*'))
-	// {
-	// 	(*piece)->height--;
-	// 	i--;
-	// 	fprintf(stderr, "-1");
-	// 	fflush(NULL);
-	// }
-	fprintf(stderr, "PIECE HAS BEEN CHANGED TO XSTART %i AND HEIGHT %i\n", (*piece)->x_start, (*piece)->height);
-	fflush(NULL);
+	i = (*piece)->height + (*piece)->x_start;
+	while (i > 1 && !ft_strchr((*piece)->value[i - 1], '*'))
+	{
+		(*piece)->height--;
+		i--;
+	}
 }
 
 void	handle_input(t_board **board, t_piece **piece)
