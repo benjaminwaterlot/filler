@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:19:43 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/12 17:05:43 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/12 17:20:50 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int				get_score(t_board *board, t_piece *piece, int line, int col);
 void			print_board(t_board *board);
 int				throw_usage(void);
 
-int				full_of_digits(char *string);
 void			print_coords(t_coords *coords);
+int				is_empty_col(t_piece *piece, int col);
 
 #endif

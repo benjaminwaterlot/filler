@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:34:11 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/12 16:57:27 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/12 17:45:49 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ t_board	*create_board(void)
 	board = (t_board *)ft_memalloc(sizeof(t_board));
 	get_size(temp_line, &(board->width), &(board->height));
 	board->value = (char **)ft_memalloc(sizeof(char *) * (board->height + 1));
-	if (!ft_strncmp(temp_line, "Plateau", ft_strlen("Plateau")))
-		get_next_line(FILLER_STD, &temp_line);
+	free(temp_line);
+	get_next_line(FILLER_STD, &temp_line);
+	free(temp_line);
 	while (i < board->height)
 	{
 		line_start = 0;
@@ -62,8 +63,7 @@ t_piece	*create_piece(void)
 	piece = (t_piece *)ft_memalloc(sizeof(t_piece));
 	get_size(temp_line, &(piece->width), &(piece->height));
 	piece->value = (char **)ft_memalloc(sizeof(char *) * (piece->height + 1));
-	if (!ft_strncmp(temp_line, "Plateau", ft_strlen("Plateau")))
-		get_next_line(FILLER_STD, &temp_line);
+	free(temp_line);
 	while (i < piece->height)
 	{
 		line_start = 0;
@@ -76,20 +76,6 @@ t_piece	*create_piece(void)
 	}
 	piece->value[i] = 0;
 	return (piece);
-}
-
-int		is_empty_col(t_piece *piece, int col)
-{
-	int		i;
-
-	i = 0;
-	while (i < piece->height)
-	{
-		if (piece->value[i][col] != '.')
-			return (0);
-		i++;
-	}
-	return (1);
 }
 
 void	refine_piece(t_piece **piece)

@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:20:04 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/12 17:16:40 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/12 17:50:22 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	get_enemy_position(t_game *game, t_board *board)
 
 int		record_player_name(char *player)
 {
-	if (ft_strlen(player) <= 13)
+	if (ft_strlen(player) <= 12 || ft_strncmp(player, "$$$ exec p", 10))
 		return (0);
 	if (player[10] == '1')
 		g_game->player = 'O';
@@ -57,6 +57,24 @@ int		record_player_name(char *player)
 	return (1);
 }
 
+void	free_tables(t_board *board, t_piece *piece)
+{
+	int			i;
+
+	i = -1;
+	while (board->value[++i])
+		free(board->value[i]);
+	free(board->value[i]);
+	free(board->value);
+	free(board);
+	i = -1;
+	while (piece->value[++i])
+		free(piece->value[i]);
+	free(piece->value[i]);
+	free(piece->value);
+	free(piece);
+}
+
 int		run_loop(void)
 {
 	t_board		*board;
@@ -68,10 +86,7 @@ int		run_loop(void)
 		get_enemy_position(g_game, board);
 	result = fill_board(board, piece);
 	print_coords(result);
-	ft_memdel((void **)&board);
-	ft_memdel((void **)&board->value);
-	ft_memdel((void **)&piece);
-	ft_memdel((void **)&piece->value);
+	free_tables(board, piece);
 	if (!result->is_valid)
 		return (0);
 	ft_memdel((void **)&result);

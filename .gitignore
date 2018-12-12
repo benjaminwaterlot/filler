@@ -4,6 +4,8 @@ test
 .vscode*
 .DS_Store
 *.trace
+bwaterlo.filler
+.gitignore
 
 # Prerequisites
 *.d
