@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/08 18:15:41 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/12 14:28:49 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
-
-int		full_of_digits(char *string)
-{
-	while (*string)
+	if (!s || !f)
+		return ;
+	while (*s)
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		f(s);
+		s++;
 	}
-	return (1);
 }

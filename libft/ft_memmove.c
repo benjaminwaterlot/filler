@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/08 10:52:14 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/08 11:37:14 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	int			i;
+	char		*dest_str;
+	const char	*src_str;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
+	dest_str = dest;
+	src_str = src;
+	if (dest > src)
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		i = n;
+		while (--i >= 0)
+			dest_str[i] = src_str[i];
 	}
-	return (1);
+	else
+	{
+		i = -1;
+		while (++i < (int)n)
+			dest_str[i] = src_str[i];
+	}
+	return (dest);
 }

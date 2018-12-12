@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/08 18:52:40 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/08 19:04:07 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+char	*ft_strsub(char const *s, unsigned int start, size_t length)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	char	*new_troncon;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
-	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
-	}
-	return (1);
+	if (!s)
+		return (NULL);
+	new_troncon = ft_strnew(length);
+	if (!new_troncon)
+		return (NULL);
+	return (ft_strncpy(new_troncon, &s[start], length));
 }

@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/07/10 15:15:41 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/08 10:45:19 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	unsigned int	i;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
+	i = 0;
+	while (src[i] != '\0' && i < n)
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		dest[i] = src[i];
+		i++;
 	}
-	return (1);
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }

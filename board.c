@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:34:11 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 19:20:56 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/12 14:35:59 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_board	*create_board()
 	{
 		line_start = 0;
 		get_next_line(FILLER_STD, &temp_line);
-		while (!ft_strchr(".*OoXx", temp_line[line_start]))
+		while (!ft_strchr(".*OoXxCcDdEeFfM", temp_line[line_start]))
 			line_start++;
 		board->value[i] = ft_strdup(&temp_line[line_start]);
 		free(temp_line);
@@ -68,7 +68,7 @@ t_piece	*create_piece()
 	{
 		line_start = 0;
 		get_next_line(FILLER_STD, &temp_line);
-		while (!ft_strchr(".*OoXx", temp_line[line_start]))
+		while (!ft_strchr(".*", temp_line[line_start]))
 			line_start++;
 		piece->value[i] = ft_strdup(&temp_line[line_start]);
 		free(temp_line);

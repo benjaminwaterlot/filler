@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/07/11 13:22:39 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/08 11:13:13 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+char	*ft_strncat(char *dest, const char *src, size_t nb)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	size_t	dest_length;
+	size_t	counter;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
+	dest_length = 0;
+	while (dest[dest_length])
+		++dest_length;
+	counter = 0;
+	while (src[counter] && counter < nb)
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		dest[dest_length + counter] = src[counter];
+		counter++;
 	}
-	return (1);
+	dest[dest_length + counter] = '\0';
+	return (dest);
 }

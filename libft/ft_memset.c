@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/07 12:58:12 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/07 14:03:19 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	size_t	i;
+	char	*temporary;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
+	temporary = (char *)s;
+	i = 0;
+	while (i < n)
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		temporary[i] = c;
+		i++;
 	}
-	return (1);
+	return (s);
 }

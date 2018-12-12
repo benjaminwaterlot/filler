@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/06 16:57:46 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/09 10:56:16 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+void	ft_putstr(char const *str)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	int		i;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
+	if (!str)
+		return ;
+	i = 0;
+	while (str[i])
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		ft_putchar(str[i]);
+		i++;
 	}
-	return (1);
 }

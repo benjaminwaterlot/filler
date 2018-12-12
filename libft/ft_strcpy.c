@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/07/10 13:58:00 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/08 14:18:00 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
-
-void	print_coords(t_coords *coords)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	int		i;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
+	i = 0;
+	while (src[i] != '\0')
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		dest[i] = src[i];
+		i++;
 	}
-	return (1);
+	dest[i] = '\0';
+	return (dest);
 }

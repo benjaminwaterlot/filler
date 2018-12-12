@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/07 11:01:51 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/07 11:02:07 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
-
-void	print_coords(t_coords *coords)
+int		ft_tolower(int c)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
-
-int		full_of_digits(char *string)
-{
-	while (*string)
-	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
-	}
-	return (1);
+	if ('A' <= c && c <= 'Z')
+		return (c + 32);
+	return (c);
 }

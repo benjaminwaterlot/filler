@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/07 13:18:05 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/07 13:23:18 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	size_t		i;
+	char		*dest_string;
+	char const	*src_string;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
+	dest_string = dest;
+	src_string = src;
+	i = 0;
+	while (i < n)
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		dest_string[i] = src_string[i];
+		i++;
 	}
-	return (1);
+	return (dest);
 }

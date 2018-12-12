@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/08 12:08:17 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/08 15:33:37 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+char	*ft_strchr(const char *s, int c)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	char	*s_cpy;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
+	s_cpy = (char *)s;
+	if (!c)
+		return (&s_cpy[ft_strlen(s)]);
+	while (*s_cpy)
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		if (*s_cpy == c)
+			return (s_cpy);
+		s_cpy++;
 	}
-	return (1);
+	return (NULL);
 }

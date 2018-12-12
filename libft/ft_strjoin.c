@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/08 19:04:33 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/08 19:09:59 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	char	*new_troncon;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
-	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
-	}
-	return (1);
+	if (!s1 || !s2)
+		return (NULL);
+	new_troncon = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
+	if (!new_troncon)
+		return (NULL);
+	ft_strcpy(new_troncon, s1);
+	ft_strcat(new_troncon, s2);
+	return (new_troncon);
 }

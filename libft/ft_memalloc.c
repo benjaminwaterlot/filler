@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/07 11:33:33 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/08 10:29:42 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
+#include <stdlib.h>
 
-void	print_coords(t_coords *coords)
+void	*ft_memalloc(size_t size)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	char	*allocated;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
-	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
-	}
-	return (1);
+	if (!(allocated = malloc(size)))
+		return (NULL);
+	ft_bzero(allocated, size);
+	return ((void *)allocated);
 }

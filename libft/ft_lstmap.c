@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/09 13:28:56 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/12 09:48:33 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+t_list			*ft_lstmap(t_list *cursor, t_list *(f)(t_list *elem))
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	t_list	*new_elem;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
-	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
-	}
-	return (1);
+	if (!cursor)
+		return (NULL);
+	new_elem = f(ft_lstnew(cursor->content, cursor->content_size));
+	if (!new_elem)
+		return (NULL);
+	if (cursor->next)
+		new_elem->next = ft_lstmap(cursor->next, f);
+	return (new_elem);
 }

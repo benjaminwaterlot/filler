@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/08 18:31:04 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/08 18:47:24 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	char	*new_s;
+	int		i;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
+	if (!s)
+		return (NULL);
+	new_s = ft_strnew(ft_strlen(s));
+	if (!new_s)
+		return (NULL);
+	i = 0;
+	while (s[i])
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		new_s[i] = f(i, s[i]);
+		i++;
 	}
-	return (1);
+	return (new_s);
 }

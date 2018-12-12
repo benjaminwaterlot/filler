@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/07/10 13:58:00 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/12 13:47:05 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+char	*ft_strnstr(const char *big, const char *small, size_t size)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	size_t	small_length;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
+	if (!*small)
+		return ((char *)big);
+	small_length = ft_strlen(small);
+	while (*big != '\0' && size-- >= small_length)
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		if (*big == *small && ft_memcmp(big, small, small_length) == 0)
+			return ((char *)big);
+		big++;
 	}
-	return (1);
+	return (NULL);
 }

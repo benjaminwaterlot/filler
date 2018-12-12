@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/06 17:55:24 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/07 17:28:47 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+static void	print_nb(long nb, int fd)
 {
-	printf("%i %i\n", coords->line, coords->col);
+	if (nb > 9)
+		print_nb(nb / 10, fd);
+	ft_putchar_fd(nb % 10 + '0', fd);
 }
 
-int		full_of_digits(char *string)
+void		ft_putnbr_fd(int nb, int fd)
 {
-	while (*string)
+	long	safe_nb;
+
+	safe_nb = nb;
+	if (safe_nb < 0)
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		ft_putchar_fd('-', fd);
+		safe_nb *= -1;
 	}
-	return (1);
+	print_nb(safe_nb, fd);
 }

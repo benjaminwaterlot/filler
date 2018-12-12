@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/07/11 12:51:02 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/08 10:43:41 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
-
-void	print_coords(t_coords *coords)
+char	*ft_strcat(char *dest, const char *src)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	int		dest_length;
+	int		counter;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
+	dest_length = 0;
+	while (dest[dest_length])
+		++dest_length;
+	counter = 0;
+	while (src[counter])
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		dest[dest_length + counter] = src[counter];
+		counter++;
 	}
-	return (1);
+	dest[dest_length + counter] = '\0';
+	return (dest);
 }

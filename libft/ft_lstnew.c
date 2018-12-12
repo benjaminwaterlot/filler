@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/09 12:43:43 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/12 14:46:39 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+t_list	*ft_lstnew(void const *content, size_t size)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	t_list	*element;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
+	element = (t_list *)ft_memalloc(sizeof(t_list));
+	if (!element)
+		return (NULL);
+	if (content)
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		element->content = ft_memcpy(ft_memalloc(size), content, size);
+		element->content_size = size;
 	}
-	return (1);
+	else
+	{
+		element->content = NULL;
+		element->content_size = 0;
+	}
+	element->next = NULL;
+	return (element);
 }

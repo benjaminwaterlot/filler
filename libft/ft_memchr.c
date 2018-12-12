@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 11:03:55 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 13:19:1 by bwaterlo         ###   ########.fr       */
+/*   Created: 2018/11/08 11:42:27 by bwaterlo          #+#    #+#             */
+/*   Updated: 2018/11/12 14:44:42 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_coords(t_coords *coords)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	printf("%i %i\n", coords->line, coords->col);
-}
+	size_t			i;
+	unsigned char	*content;
 
-int		full_of_digits(char *string)
-{
-	while (*string)
+	i = 0;
+	content = (unsigned char *)s;
+	while (i < n)
 	{
-		if (!ft_isdigit(*string) && *string != ' ')
-			return (0);
-		string++;
+		if (content[i] == (unsigned char)c)
+			return ((void *)&s[i]);
+		i++;
 	}
-	return (1);
+	return (NULL);
 }
