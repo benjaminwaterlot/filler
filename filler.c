@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:20:04 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/12 17:50:22 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/12 17:53:21 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,5 @@ int		main(void)
 	while (run_loop())
 		continue ;
 	ft_memdel((void **)&g_game);
-	sleep(60);
 	return (0);
 }
