@@ -6,21 +6,11 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:12:17 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/12 16:09:45 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/12 17:01:19 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-
-int			is_ally(char c)
-{
-	return (c == g_game->player || c == g_game->player + 32);
-}
-
-int			is_enemy(char c)
-{
-	return (c != '.' && !is_ally(c));
-}
 
 void		save_coords(t_coords *coords, int line, int col, int is_valid)
 {

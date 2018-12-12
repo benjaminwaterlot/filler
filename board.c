@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:34:11 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/12 14:35:59 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/12 16:57:27 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	get_size(char *specs, int *width, int *height)
 	*width = ft_atoi(specs);
 }
 
-t_board	*create_board()
+t_board	*create_board(void)
 {
 	t_board	*board;
 	char	*temp_line;
@@ -50,7 +50,7 @@ t_board	*create_board()
 	return (board);
 }
 
-t_piece	*create_piece()
+t_piece	*create_piece(void)
 {
 	t_piece	*piece;
 	char	*temp_line;
@@ -102,12 +102,10 @@ void	refine_piece(t_piece **piece)
 		(*piece)->start_col++;
 		(*piece)->width--;
 	}
-
 	while (is_empty_col(*piece, (*piece)->start_col + (*piece)->width - 1))
 	{
 		(*piece)->width--;
 	}
-
 	(*piece)->start_line = 0;
 	while (!ft_strchr((*piece)->value[(*piece)->start_line], '*'))
 	{

@@ -6,25 +6,26 @@
 #    By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/06 10:13:41 by bwaterlo          #+#    #+#              #
-#    Updated: 2018/12/12 16:10:39 by bwaterlo         ###   ########.fr        #
+#    Updated: 2018/12/12 16:13:17 by bwaterlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=		bwaterlo.filler
 
-CFLAGS	+=		-Wall			\
-				-Wextra			\
-				-Werror			\
-				-g				\
-				-I $(LIBFT_DIR)	\
+CFLAGS	+=		-Wall				\
+				-Wextra				\
+				-Werror				\
+				-g					\
+				-I $(LIBFT_DIR)		\
 
 CC		=		gcc
 
-SRCS	=		filler.c		\
-				board.c			\
-				helpers.c		\
-				solve.c			\
-				get_score.c		\
+SRCS	=		filler.c			\
+				board.c				\
+				helpers.c			\
+				solve.c				\
+				get_score.c			\
+				is_ally_or_enemy.c	\
 
 LIBFT_DIR =		libft/
 
