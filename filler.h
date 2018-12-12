@@ -6,7 +6,7 @@
 /*   By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 10:19:43 by bwaterlo          #+#    #+#             */
-/*   Updated: 2018/12/11 19:32:38 by bwaterlo         ###   ########.fr       */
+/*   Updated: 2018/12/12 16:07:25 by bwaterlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void			handle_input(t_board **board, t_piece **piece);
 //				SOLVER FUNCTIONS
 t_coords		*fill_board(t_board *board, t_piece *piece);
 int				is_enemy(char c);
+int				get_score(t_board *board, t_piece *piece, int line, int col);
 
 //				OUTPUT FUNCTIONS
 void			print_board(t_board *board);

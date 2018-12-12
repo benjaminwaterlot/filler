@@ -6,24 +6,25 @@
 #    By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/06 10:13:41 by bwaterlo          #+#    #+#              #
-#    Updated: 2018/12/10 12:06:59 by bwaterlo         ###   ########.fr        #
+#    Updated: 2018/12/12 16:10:39 by bwaterlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=		filler
+NAME	=		bwaterlo.filler
 
-CFLAGS	+=		-Wall\
-				-Wextra\
-				-Werror\
-				-g\
-				-I $(LIBFT_DIR)\
+CFLAGS	+=		-Wall			\
+				-Wextra			\
+				-Werror			\
+				-g				\
+				-I $(LIBFT_DIR)	\
 
 CC		=		gcc
 
-SRCS	=		filler.c\
-				board.c\
-				helpers.c\
-				solve.c\
+SRCS	=		filler.c		\
+				board.c			\
+				helpers.c		\
+				solve.c			\
+				get_score.c		\
 
 LIBFT_DIR =		libft/
 
@@ -42,13 +43,21 @@ all: $(NAME)
 
 clean:
 	@rm -f $(OBJS)
-	@echo "Objects cleaned."
+	@make clean -C $(LIBFT_DIR)
+	@echo "Filler objects cleaned."
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "Executable cleaned."
+	@make fclean -C $(LIBFT_DIR)
+	@echo "Filler executable cleaned."
 
 re: fclean all
 
-t: all
-	cd resources && ./filler_vm -f maps/map01 -p1 players/hcao.filler -p2 ../filler && cd -
+test_1: $(NAME)
+	@echo "Launching tests"
+	@./resources/filler_vm -f ./resources/maps/map02 -p1 ./resources/players/carli.filler -p2 ./$(NAME)
+
+test_2: $(NAME)
+	@echo "Launching tests"
+	@./resources/filler_vm -f ./resources/maps/map01 -p1 ./$(NAME) -p2 ./$(NAME)
+

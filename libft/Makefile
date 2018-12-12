@@ -6,7 +6,7 @@
 #    By: bwaterlo <bwaterlo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:29:25 by bwaterlo          #+#    #+#              #
-#    Updated: 2018/12/06 10:12:40 by bwaterlo         ###   ########.fr        #
+#    Updated: 2018/12/12 15:14:40 by bwaterlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,10 +91,10 @@ all: $(NAME)
 
 clean:
 	@rm -f $(OBJS)
-	@echo "Objects cleaned."
+	@echo "Libft objects cleaned."
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "Executable cleaned."
+	@echo "Libft executable cleaned."
 
 re: fclean all
